@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Steelband</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap");
+
+      body {
+        background: radial-gradient(
+          circle at 0.2% 0.5%,
+          rgb(252, 165, 241) 0%,
+          rgb(181, 255, 255) 100.2%
+        );
+      }
+      .container {
+        background: rgba(255, 255, 255, 0.8);
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 30px 50px;
+        border-radius: 10px;
+      }
+      h1 {
+        text-align: center;
+        font-family: "Architects Daughter", cursive;
+        font-size: 36px;
+        color: deeppink;
+      }
+      h2 {
+        text-align: center;
+        font-family: "Architects Daughter", cursive;
+        font-size: 30px;
+      }
+      h3 {
+        font-family: "Architects Daughter", cursive;
+        font-size: 20px;
+      }
+      p {
+        font-family: "Varela Round", sans-serif;
+        line-height: 1.5;
+      }
+      a {
+        color: deeppink;
+      }
+
+      a:hover {
+        color: aqua;
+        cursor: pointer;
+      }
+
+      hr {
+        border: 2px solid rgba(251, 167, 242, 0.5);
+        border-radius: 2px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+      button {
+        display: block;
+        margin: 0 auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-family: "Varela Round", sans-serif;
+        font-size: 16px;
+        padding: 10px;
+        border-radius: 20px;
+        border: none;
+        text-align: center;
+      }
+
+      .theme-button {
+        background: white;
+        margin-bottom: 10px;
+        transition: all 200ms ease-in-out;
+      }
+
+      .theme-button:hover {
+        color: white;
+        background: rgb(70, 70, 70);
+        cursor: pointer;
+      }
+
+      .newsletter-button {
+        color: black;
+        background: #fba7f2;
+        margin-bottom: 10px;
+        transition: all 200ms ease-in-out;
+      }
+      .newsletter-button:hover {
+        color: #fba7f2;
+        background: #b5feff;
+        cursor: pointer;
+      }
+      .classes-button {
+        color: black;
+        background: #b5feff;
+        margin-bottom: 10px;
+        transition: all 200ms ease-in-out;
+      }
+      .classes-button:hover {
+        color: #b5feff;
+        background: #fba7f2;
+        cursor: pointer;
+      }
+
+      .button-link {
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      .header-image {
+        border-radius: 10px;
+        transition: all 150ms ease-in-out;
+      }
+
+      .header-image:hover {
+        filter: contrast(120%);
+        transform: scale(1.16);
+        cursor: pointer;
+        filter: drop-shadow(16px 16px 20px rgba(0, 0, 0, 0.7));
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+        padding-top: 10px;
+      }
+
+      .gallery-grid img {
+        width: 100%;
+        border-radius: 8px;
+        transition: all 150ms ease-in-out;
+      }
+
+      .gallery-grid img:hover {
+        transform: scale(2);
+        filter: drop-shadow(8px 8px 10px rgba(0, 0, 0, 0.7));
+      }
+      .opening-paragraph {
+        text-align: center;
+      }
+
+      .styled-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        font-family: "Varela Round", sans-serif;
+        line-height: 1.5;
+        padding: 0 0 0 25px;
+      }
+
+      .styled-list li {
+        text-indent: -1.8rem;
+      }
+
+      .styled-list li::before {
+        content: "🎵 ";
+      }
+      .thank-you {
+        text-align: center;
+      }
+
+      .footer-container {
+        font-family: "Courier New", Courier, monospace;
+        text-align: center;
+        max-width: 500px;
+        margin: 0 auto;
+        margin-top: 25px;
+        padding: 20px;
+        border-radius: 100px;
+        background: rgba(255, 255, 255, 0.5);
+      }
+
+      .footer-link {
+        text-decoration: none;
+      }
+
+      .footer-link:hover {
+        text-decoration: underline;
+      }
+
+      .bonito {
+        width: 25px;
+      }
+
+      .bonito:hover {
+        animation: rotation 1s infinite linear;
+      }
+
+      @keyframes rotation {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(359deg);
+        }
+      }
+
+      .dark {
+        background-color: #000000;
+        opacity: 0.8;
+        background: repeating-linear-gradient(
+          45deg,
+          #0b0b0b,
+          #0b0b0b 5px,
+          #000000 5px,
+          #000000 25px
+        );
+        color: antiquewhite;
+      }
+      .dark .container {
+        background: #151515;
+      }
+
+      .dark .footer-container {
+        background: #151515;
+      }
+
+      .dark .theme-button {
+        color: white;
+        background: rgb(70, 70, 70);
+        cursor: pointer;
+      }
+
+      .dark .theme-button:hover {
+        background: white;
+        color: rgb(70, 70, 70);
+        margin-bottom: 10px;
+        transition: all 200ms ease-in-out;
+      }
+
+      .dark .newsletter-button {
+        background-color: #971256;
+        color: antiquewhite;
+      }
+
+      .dark .newsletter-button:hover {
+        background-color: #004456;
+      }
+
+      .dark .classes-button {
+        background-color: #004456;
+        color: antiquewhite;
+      }
+
+      .dark .classes-button:hover {
+        background-color: #971256;
+      }
+
+      .dark a {
+        color: #971256;
+      }
+
+      .dark a:hover {
+        color: #004456;
+      }
+      .dark h1 {
+        color: #971256;
+      }
+
+      .dark hr {
+        border: 2px solid rgba(151, 18, 86, 0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <br />
+    <button class="theme-button">☀️ ↻ 🌙</button>
+    <br />
+    <br />
+    <div class="container">
+      <h1>Steelband</h1>
+      <h2>It doesn't have to be just tropical music!</h2>
+
+      <hr />
+      <br />
+
+      <a href="https://en.wikipedia.org/wiki/Steelpan" target="_blank"
+        ><img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/049/570/original/Stock_Image.png?1666368897"
+          alt="Steelband Stock Image"
+          class="header-image"
+      /></a>
+
+      <div class="gallery-grid">
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/049/571/original/Second.png?1666368907"
+          alt="My Second pan"
+        />
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/049/572/original/Band_Keller.png?1666368925"
+          alt="Band basement"
+        />
+        <img
+          src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/049/573/original/Bass.png?1666368937"
+          alt="Bass pan"
+        />
+      </div>
+      <br />
+      <p class="opening-paragraph">
+        <em>
+          "The steelpan (also known as a pan, steel drum, and sometimes,
+          collectively with other musicians, as a steelband or steel orchestra)
+          is a musical instrument originating in Trinidad and Tobago. Steelpan
+          musicians are called pannists."
+          <br />
+          Source:
+          <a href="https://en.wikipedia.org/wiki/Steelpan" target="_blank"
+            >Wikipedia</a
+          ></em
+        >
+      </p>
+      <br />
+      <h3>What is a steelpan and how does it work?</h3>
+      <p>
+        The modern pan is a chromatically pitched percussion instrument made
+        from 55 gallon industrial drums. Drum refers to the steel drum
+        containers from which the pans are made; the steel drum is more
+        correctly called a steel pan or pan as it falls into the idiophone
+        family of instruments, and so is not a drum (which is a membranophone).
+        Some steel pans are made to play in the Pythagorean musical cycle of
+        fourths and fifths.
+        <br />
+        <br />
+        Pan is played using a pair of straight sticks tipped with rubber; the
+        size and type of rubber tip varies according to the class of pan being
+        played. Some musicians use four pansticks, holding two in each hand.
+        <br />
+        <br />
+        I can only speak for our steelband group, but we have four different
+        types of drums in our lineup:
+      </p>
+      <ul class="styled-list">
+        <li>
+          First - a single drum which plays most of the melody, tenor/soprano
+          voice
+        </li>
+        <li>
+          Second - double drums which plays both harmony and melody, alto voice
+        </li>
+        <li>
+          Guitar - usually double drums which plays a lot of harmony and some
+          melody, baritone voice
+        </li>
+        <li>
+          Bass - five or six whole barrels, plays the bass notes of the music
+        </li>
+      </ul>
+
+      <br />
+      <br />
+      <h3>My journey of playing steelband</h3>
+      <p>
+        I've been playing steelband since the 7th grade, so I'm coming up on 17
+        years. I don't think I've ever done anything for 17 years straight,
+        except maybe... breathing... or playing video games. But it's safe to
+        say that I greatly enjoy doing it!
+        <br />
+        <br />
+        It started as an elective in 7th grade. It was one lesson block a week,
+        over lunch (if I remember correctly). I honestly do not remember why I
+        signed up for that class. But I think it was a bout of "Come on, Steph,
+        you gotta do <em>something</em> at least!" And that's how I ended up
+        with a life-long hobby and how I ended up meeting my best friend!
+        <br />
+        <br />
+        Even back then we played songs that were not what is generally
+        considered "traditional" steel pan songs. Because when people hear the
+        sound of steel pans, they generally think "Caribbean". But oh, no no, we
+        were playing classics like "I can see clearly now", "Eye of the Tiger",
+        "He's a Pirate", "Every breath you take", and "Billie Jean". During the
+        holidays, we even played "Feliz Navidad" in the local church,
+        accompanying a choir.
+        <br />
+        <br />
+        After I graduated from 9th grade, I signed up for the steelband classes.
+        It's basically the same thing, except now it's adults who play and pay
+        for it. We have the same instructor and are practicing in the same room
+        (under the school's auditorium).
+        <br />
+        <br />
+        I started out playing First during my school years. Now I've migrated
+        towards Second and sometimes Bass, depending on the piece we are
+        playing. I like Second a lot because it's more low-key and has a more
+        baritone sound than First. Bass is a lot of fun as well, but it puts
+        quite a lot of pressure on you, since you're the only one playing and if
+        you mess up, people are <em>definitely</em> going to notice.
+        <br />
+        <br />
+        One of my favorite things about playing in our current steelband group
+        is that everyone is there to have a good time. That, and we keep
+        learning new and interesting songs. Just yesterday, we started with
+        <a href="https://youtu.be/sHgwnmmv7uo" target="_blank"
+          >"Agosto" by Alvaro Soler</a
+        >. I can't wait to play that one all the way through for the first time!
+      </p>
+      <h3 class="thank-you">
+        Thank you for reading, <span class="friend-text">friend</span>!
+      </h3>
+      <br />
+      <button class="newsletter-button">Sign up for my newsletter!</button>
+      <br />
+      <a
+        href="https://www.google.com/search?q=steel+pan+lessons+near+me&oq=steel+pan+lessons+near+me&aqs=chrome..69i57j0i19i22i30l4j69i60l2.3426j0j4&sourceid=chrome&ie=UTF-8"
+        target="_blank"
+        class="button-link"
+      >
+        <button class="classes-button">
+          Find steelband lessons near you!
+        </button></a
+      >
+    </div>
+    <div class="footer-container">
+      Coded by: Stephanie Zbinden / October 2022 <br />
+      What I listened to while coding: <br />
+      <a href="https://youtu.be/UXWckTAw3JY" target="_blank" class="footer-link"
+        >2 Hours Of Chill Shrimp To Work/Study/Relax</a
+      >
+    </div>
+    <img
+      src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/049/577/original/Bonito.png?1666370963"
+      alt="Bonito"
+      class="bonito"
+    />
+
+    <script>
+      function changeTheme() {
+        let body = document.querySelector("body");
+        if (body.classList.contains("dark")) {
+          body.classList.remove("dark");
+        } else {
+          body.classList.add("dark");
+        }
+      }
+      let themeButton = document.querySelector(".theme-button");
+      themeButton.addEventListener("click", changeTheme);
+
+      function subscribeNewsletter() {
+        let userName = prompt("What is your name, friend?");
+        userName.trim();
+
+        if (userName === null || userName === "") {
+          alert("Please do not leave your name empty.");
+          subscribeNewsletter();
+        } else {
+          let nameReplaceHeader = document.querySelector(".friend-text");
+          nameReplaceHeader.innerHTML = userName;
+
+          let userEmail = prompt(
+            "Please enter your email address for updates!"
+          );
+          let atSymbol = "@";
+          let periodSymbol = ".";
+
+          if (
+            !userEmail.includes(atSymbol) &&
+            !userEmail.includes(
+              periodSymbol || userEmail === null || userEmail === ""
+            )
+          ) {
+            alert(
+              "This does not seem to be a valid email address. Please try again."
+            );
+            subscribeNewsletter();
+          } else {
+            let userEmoji = prompt("Just curious: What's your favorite emoji?");
+            if (userEmoji === null || userEmoji === "") {
+              alert("I'll pick one for you then!");
+              let userEmoji = "🦄";
+              alert(
+                "Thank you for subscribing, " +
+                  userName +
+                  "! I'll keep you up to date! " +
+                  userEmoji
+              );
+            } else {
+              alert(
+                "Thank you for subscribing, " +
+                  userName +
+                  "! I'll keep you up to date! " +
+                  userEmoji
+              );
+            }
+          }
+        }
+      }
+
+      let subscribeButton = document.querySelector(".newsletter-button");
+      subscribeButton.addEventListener("click", subscribeNewsletter);
+    </script>
+  </body>
+</html>
